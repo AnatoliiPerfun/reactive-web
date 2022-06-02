@@ -7,6 +7,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.System.*;
 
@@ -70,4 +71,29 @@ class PersonRepositoryImplTest {
                 )
         );
     }
+
+    @Test
+    void testFindPersonById() {
+        Flux<Person> personFlux = personRepository.findAll();
+        final Integer id = 3;
+        Mono<Person> personMono = personFlux
+                .filter(person -> person.getId().equals(id))
+                .next();
+        personMono.subscribe(person -> out.println(person.toString()));
+    }
+
+    @Test
+    void testFindPersonByIdNotFoundWithException() {
+        Flux<Person> personFlux = personRepository.findAll();
+        final Integer id = 5;
+        Mono<Person> personMono = personFlux
+                .filter(person -> person.getId().equals(id))
+                .single();
+
+        personMono.doOnError(throwable -> out.println("no such ID found"))
+                .onErrorReturn(Person.builder().id(id).build())
+                .subscribe(person -> out.println(person.toString())
+                );
+    }
+
 }
