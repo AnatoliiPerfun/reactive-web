@@ -9,5 +9,4 @@ public class NetfluxApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NetfluxApplication.class, args);
 	}
-
 }
