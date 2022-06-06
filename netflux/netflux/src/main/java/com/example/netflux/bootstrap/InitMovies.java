@@ -20,7 +20,11 @@ public class InitMovies implements CommandLineRunner {
     public void run(String... args) {
         movieRepository.deleteAll()
                 .thenMany(
-                        Flux.just("Movie1", "Movie2", "another movie", "movie3", "new")
+                        Flux.just("Movie1",
+                                        "Movie2",
+                                        "another movie",
+                                        "movie3",
+                                        "new")
                                 .map(Movie::new)
                 .flatMap(movieRepository::save))
                                 .subscribe(null, null, () -> movieRepository.findAll()
