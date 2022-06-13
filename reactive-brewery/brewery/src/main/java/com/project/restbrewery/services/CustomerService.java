@@ -2,17 +2,13 @@ package com.project.restbrewery.services;
 
 import com.project.restbrewery.web.model.CustomerDto;
 
-import java.util.UUID;
 
-/**
- * Created by jt on 2019-04-21.
- */
 public interface CustomerService {
-    CustomerDto getCustomerById(UUID customerId);
+    CustomerDto getCustomerById(Integer customerId);
 
     CustomerDto saveNewCustomer(CustomerDto customerDto);
 
-    void updateCustomer(UUID customerId, CustomerDto customerDto);
+    void updateCustomer(Integer customerId, CustomerDto customerDto);
 
-    void deleteById(UUID customerId);
+    void deleteById(Integer customerId);
 }

@@ -4,37 +4,30 @@ import com.project.restbrewery.web.model.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 
-/**
- * Created by jt on 2019-04-21.
- */
 @Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService {
+
+
     @Override
-    public CustomerDto getCustomerById(UUID customerId) {
-        return CustomerDto.builder()
-                .id(UUID.randomUUID())
-                .name("Joe Buck")
-                .build();
+    public CustomerDto getCustomerById(Integer customerId) {
+        return null;
     }
 
     @Override
     public CustomerDto saveNewCustomer(CustomerDto customerDto) {
-        return CustomerDto.builder()
-                .id(UUID.randomUUID())
-                .build();
+        return null;
     }
 
+
     @Override
-    public void updateCustomer(UUID customerId, CustomerDto customerDto) {
-        //todo impl
+    public void updateCustomer(Integer customerId, CustomerDto customerDto) {
         log.debug("Updating....");
     }
 
     @Override
-    public void deleteById(UUID customerId) {
+    public void deleteById(Integer customerId) {
         log.debug("Deleting.... ");
     }
 }
