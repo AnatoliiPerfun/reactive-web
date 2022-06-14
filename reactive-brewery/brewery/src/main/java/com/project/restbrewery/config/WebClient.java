@@ -17,7 +17,7 @@ public class WebClient {
                 .build();
     }
 
-    private static org.springframework.web.reactive.function.client.WebClient.Builder builder() {
+    public static org.springframework.web.reactive.function.client.WebClient.Builder builder() {
         return null;
     }
 
